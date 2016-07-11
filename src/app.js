@@ -15,13 +15,15 @@ const api = koaRouter()
 
 // Top level server configuration.
 export const app = new Koa();
+
 if (REQUEST_LOGS) {
   app.use(require('koa-morgan')('combined'));
 }
+
 app
   .use(helmet())
-  .use(api.routes())
   .use(errorResponder)
+  .use(api.routes())
   .use(api.allowedMethods());
 
 const PORT = process.env.PORT || 3000;
