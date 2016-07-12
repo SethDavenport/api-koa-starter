@@ -1,7 +1,9 @@
 {
   "parser": "babel-eslint",          // https://github.com/babel/babel-eslint
   "env": {                           // http://eslint.org/docs/user-guide/configuring.html#specifying-environments
-    "node": true                     // Node.js global variables and Node.js-specific rules
+    "node": true,                    // Node.js global variables and Node.js-specific rules
+    "es6": true,                     // Enable ES6 features and global variables
+    "mocha": true                    // Add Mocha global variables
   },
   "parserOptions": {
     "ecmaVersion": 6
@@ -16,6 +18,7 @@
       "vars": "local",
       "args": "after-used"
     }],
+    "no-undef": 2,                   // http://eslint.org/docs/rules/no-undef
     "no-use-before-define": 0,       // http://eslint.org/docs/rules/no-use-before-define
     "comma-dangle": [2, "always-multiline"],    // http://eslint.org/docs/rules/comma-dangle
     "no-cond-assign": [2, "always"], // http://eslint.org/docs/rules/no-cond-assign
