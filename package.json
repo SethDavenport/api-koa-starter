@@ -52,7 +52,7 @@
     "nyc": "^7.0.0",
     "rimraf": "^2.5.3",
     "sinon": "^1.17.3",
-    "supertest": "^1.2.0",
+    "supertest": "^2.0.0",
     "supertest-as-promised": "^3.1.0"
   },
   "nyc": {
