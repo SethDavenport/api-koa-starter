@@ -17,13 +17,19 @@
     "build": "npm run clean && npm run build:transpile",
     "start": "cross-env PROJECT_ENV=staging node --require babel-polyfill ./dist/app.js",
     "dev": "cross-env PROJECT_ENV=local nodemon --exec babel-node -- ./src/app.js",
+    "local:start": "cross-env PROJECT_ENV=local daemon:start",
+    "local:stop": "cross-env PROJECT_ENV=local daemon:stop",
+    "local:start": "cross-env PROJECT_ENV=staging npm run daemon:start",
+    "local:stop": "cross-env PROJECT_ENV=staging npm run daemon:stop",
     "test": "cross-env PROJECT_ENV=testing npm run test:ci",
     "test:watch": "cross-env PROJECT_ENV=testing npm run test:mocha:watch",
     "build:transpile": "babel src -d dist",
     "pretest:ci": "npm run lint",
     "test:ci": "cross-env NODE_ENV=test nyc --all mocha",
     "test:mocha:watch": "mocha --watch",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "daemon:start": "forever --uid api-koa-starter -a -c 'node --require babel-polyfill' start ./dist/app.js",
+    "daemon:stop": "forever stop api-koa-starter || true"
   },
   "dependencies": {
     "babel-plugin-syntax-async-functions": "^6.1.4",
@@ -46,6 +52,7 @@
     "chai": "^3.5.0",
     "cross-env": "^2.0.0",
     "eslint": "^3.0.1",
+    "forever": "^0.15.2",
     "mocha": "^3.0.0",
     "mockery": "^1.7.0",
     "nodemon": "^1.9.2",
