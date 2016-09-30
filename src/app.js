@@ -4,25 +4,26 @@ import helmet from 'koa-helmet';
 import winston from 'winston';
 import { errorResponder } from './middleware/error-responder';
 import { REQUEST_LOGS } from './project-env';
-import { healthCheckRouter } from './routes/health-check/health-check.router';
+import { healthCheckRouter } from './routes/health-check/health-check.routes';
 import { demoRouter } from './routes/demo/demo.routes';
 
 // Entry point for all modules.
 const api = koaRouter()
-  .use('/', healthCheckRouter.routes())
+  .get('/', ctx => ctx.body = 'API Koa Starter from Rangle.io')
+  .use('/health', healthCheckRouter.routes())
   .use('/demo', demoRouter.routes());
 
 // Top level server configuration.
-export const app = new Koa()
-  .use(helmet());
+export const app = new Koa();
 
 if (REQUEST_LOGS) {
   app.use(require('koa-morgan')('combined'));
 }
 
 app
-  .use(api.routes())
+  .use(helmet())
   .use(errorResponder)
+  .use(api.routes())
   .use(api.allowedMethods());
 
 const PORT = process.env.PORT || 3000;

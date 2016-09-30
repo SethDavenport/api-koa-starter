@@ -6,5 +6,5 @@ import { shallow, deep } from './health-check.controller';
  * be routed to nodes.
  */
 export const healthCheckRouter = koaRouter()
-  .get('/', shallow)
+  .get('/shallow', shallow)
   .get('/deep', deep);
