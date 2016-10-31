@@ -1,6 +1,6 @@
 import Koa from 'koa';
 import koaRouter from 'koa-router';
-import bodyParser from 'koa-bodyparser';
+import bodyParser from 'koa-body';
 import helmet from 'koa-helmet';
 import winston from 'winston';
 import { errorResponder } from './middleware/error-responder';
