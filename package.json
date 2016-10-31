@@ -40,9 +40,10 @@
     "debug": "^2.2.0",
     "koa": "^2.0.0",
     "koa-body": "^1.4.0",
-    "koa-helmet": "^2.0.0-alpha.1",
+    "koa-helmet": "^2.0.0",
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.0.1",
+    "koa-convert": "^1.2.0",
     "ramda": "^0.22.1",
     "winston": "^2.2.0"
   },

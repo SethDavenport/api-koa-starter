@@ -1,6 +1,7 @@
 import Koa from 'koa';
 import koaRouter from 'koa-router';
 import bodyParser from 'koa-body';
+import koaConvert from 'koa-convert';
 import helmet from 'koa-helmet';
 import winston from 'winston';
 import { errorResponder } from './middleware/error-responder';
@@ -25,7 +26,7 @@ if (REQUEST_LOGS) {
 
 app
   .use(helmet())
-  .use(bodyParser())
+  .use(koaConvert(bodyParser()))
   .use(errorResponder)
   .use(api.routes())
   .use(api.allowedMethods());

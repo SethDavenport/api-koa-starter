@@ -2,51 +2,53 @@
 
 ## Quick Start
 
+This starter works with `npm` or [`yarn`](http://yarnpkg.com).
+
 Install:
 
 ```sh
-npm install
+yarn # or npm install
 ```
 
 Run in dev mode, restarting the server on file changes:
 
 ```sh
-npm run dev
+yarn dev
 ```
 
 Run unit tests:
 
 ```sh
-npm test
+yarn test
 ```
 
 Run in prod mode, not daemonized, with staging config (suitable for Heroku):
 
 ```sh
-npm run build
-npm start
+yarn build
+yarn start
 ```
 
 Start/stop in prod mode, daemonized, with local config:
 
 ```sh
-npm run build
-npm run local:start
-npm run local:stop
+yarn build
+yarn local:start
+yarn local:stop
 ```
 
 Start/stop in prod mode, daemonized mode, with staging config:
 
 ```sh
-npm run build
-npm run staging:start
-npm run staging:stop
+yarn build
+yarn staging:start
+yarn staging:stop
 ```
 
 Build (or update) the API documentation to `api.html` in the root:
 
 ```sh
-npm run raml
+yarn raml
 ```
 
 ## TODO:
@@ -56,5 +58,4 @@ npm run raml
   * with caveats - big blurb on session management
   * protected whoami?
 * Jasmine instead of mocha?
-* Better coverage numbers, tools.
 * Update rangle-starter CLI, README.
