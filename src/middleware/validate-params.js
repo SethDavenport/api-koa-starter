@@ -1,4 +1,4 @@
-import winston from 'winston';
+import { logger } from '../services/logger';
 import R from 'ramda';
 
 /**
@@ -18,7 +18,7 @@ export const validateParams
     const container = R.path(containerPath, ctx);
 
     if (!container) {
-      winston.warn('Invalid param container:', container);
+      logger.warn('Invalid param container:', container, { requestId: ctx.requestId });
       ctx.throw(400, 'Bad request');
     }
 
