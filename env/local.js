@@ -3,4 +3,5 @@
  */
 module.exports = {
   REQUEST_LOGS: true,
+  LOG_LEVEL: 'info',
 };
